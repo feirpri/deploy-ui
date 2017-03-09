@@ -1,0 +1,5 @@
+node_modules/
+dist/
+.npmignore
+npm-debug.log
+npm-debug.log.*

@@ -1,0 +1,48 @@
+<template>
+    <transition name="ci-ajax-progress--fade">
+        <div class="ci-ajax-progress" v-show="progress && progress < 1">
+            <div class="ci-ajax-progress--bar" :style="{width: progress * 100 + '%'}"></div>
+        </div>
+    </transition>
+</template>
+
+<script>
+export default {
+    name: 'ci-ajax-progress',
+    props: {
+        progress: {
+            type: Number,
+            default: 0,
+        },
+    },
+};
+</script>
+
+<style lang='less'>
+.ci-ajax-progress{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 0.3rem;
+    z-index: 100;
+
+    &--bar{
+        background-color: rgba(255, 0, 0, 0.7);
+        height: 2px;
+        box-shadow: 0 0 6px rgba(255, 0, 0, 0.7);
+        width: 0;
+        transition: 0.1s;
+    }
+
+    &--fade-enter-active{
+        transition: opacity 0.1s;
+    }
+    &--fade-leave-active {
+        transition: opacity 0.5s
+    }
+    &--fade-enter, &--fade-leave-active {
+        opacity: 0
+    }
+}
+</style>

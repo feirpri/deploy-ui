@@ -1,0 +1,22 @@
+<template>
+    <div class="ci-radio-versions-group">
+        <ci-radio-versions v-for="item in data" :label='item.label' :versions="item.versions">{{item.text}}</ci-radio-versions>
+    </div>
+</template>
+<script type="text/javascript">
+import RadioVersions from './RadioVersions';
+
+export default {
+    name: 'ci-radio-versions-group',
+    componentName: 'CiRadioVersionsGroup',
+    components: {
+        'ci-radio-versions': RadioVersions,
+    },
+    props: ['data', 'value'],
+    data() {
+        return {
+            result: {},
+        };
+    },
+};
+</script>

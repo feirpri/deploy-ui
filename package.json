@@ -7,6 +7,10 @@
   "scripts": {
     "build": "node build/build.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:feirpri/deploy-ui.git"
+  },
   "dependencies": {
     "clipboard": "^1.5.16",
     "element-ui": "^1.0.5",

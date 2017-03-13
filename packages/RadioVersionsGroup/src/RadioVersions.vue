@@ -1,9 +1,9 @@
 <template>
     <div class="ci-radio-versions">
-        <el-radio :label="label" v-model="result.value" @click.native="setValue">
+        <el-radio :label="label" :value="result.value" @click.native="setValue">
             <slot></slot>
         </el-radio>
-        <el-dropdown class="ci-radio-versions-dropdown" @command="setVersion" trigger="click">
+        <el-dropdown class="ci-radio-versions--dropdown" @command="setVersion" trigger="click">
             <span>{{result.version}}<i class="el-icon-caret-bottom el-icon--right"></i></span>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item :command='"" + $index' v-for="(item, $index) in versions">{{item}}</el-dropdown-item>
@@ -27,8 +27,14 @@
                 type: Object,
             },
         },
+        data() {
+            return {
+                version: this.versions[0],
+            };
+        },
         mounted() {
             if (this.host.value.value === this.label) {
+                this.version = this.host.value.version || this.version;
                 this.triggerInput(this.value);
             }
         },
@@ -36,9 +42,6 @@
             host() {
                 const parent = this.$parent;
                 return parent.$options.componentName === 'CiRadioVersionsGroup' ? parent : this;
-            },
-            version() {
-                return this.host.value.version || this.versions[0];
             },
             result() {
                 return {
@@ -56,9 +59,8 @@
                 this.host.$emit('input', value);
             },
             setVersion(index) {
-                this.triggerInput({
-                    version: this.versions[index],
-                });
+                this.version = this.versions[index];
+                this.triggerInput();
             },
             setValue() {
                 this.triggerInput();

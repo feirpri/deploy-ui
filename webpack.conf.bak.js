@@ -5,22 +5,13 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var fs = require('fs')
 
 module.exports = {
-  entry: {
-    index: './src/index.js'
-  },
-  output: {
-    path: path.join(__dirname, '/dist'),
-    publicPath: path.join(__dirname, '/dist/assets'),
-    filename: '[name].js',
-    libraryTarget: "umd"
-  },
   resolve: {
-    root: path.resolve(__dirname, 'src'),
+    // root: path.resolve(__dirname, 'src'),
     extensions: ['', '.js', '.vue'],
     modulesDirectories: ["node_modules", "bower_components"]
     // fallback: [path.join(__dirname, '/node_modules')]
   },
-  externals: fs.readdirSync("node_modules"),
+  // externals: fs.readdirSync("node_modules"),
   module: {
     loaders: [
       {
@@ -58,12 +49,6 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': '"production"'
     }),
-    new ExtractTextPlugin('css/index.css'),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new ExtractTextPlugin('css/index.css')
   ]
 }

@@ -1,4 +1,4 @@
-/** Auto created by script; Author: 舍掉英熊 Updated: Mon Mar 13 2017 18:11:43 GMT+0800 (中国标准时间)**/
+/** Auto created by script; Author: 舍掉英熊 Updated: Fri Mar 17 2017 14:19:29 GMT+0800 (中国标准时间)**/
 import AddBlock from '../packages/AddBlock/';
 import AjaxErrorDialog from '../packages/AjaxErrorDialog/';
 import AjaxProgress from '../packages/AjaxProgress/';

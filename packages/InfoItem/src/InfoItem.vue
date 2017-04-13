@@ -33,6 +33,9 @@ export default {
 .ci-info-item {
     line-height: 2.4rem;
     font-size: 1.2rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 
     &--name{
         color: #666;

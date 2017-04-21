@@ -3,10 +3,6 @@ import AddBlock from '../../../packages/AddBlock';
 
 describe('AddBlock', () => {
   let vm;
-  afterEach(() => {
-    console.log('test');
-    // destroyVM(vm);
-  });
 
   it('create', () => {
     vm = createTest(AddBlock, {

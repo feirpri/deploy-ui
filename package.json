@@ -5,7 +5,8 @@
   "author": "linguanghui3 <linguanghui@jd.com>",
   "main": "dist/index.js",
   "scripts": {
-    "build": "node build/build.js"
+    "build": "build.js",
+    "test": "karma start test/unit/karma.conf.js"
   },
   "repository": {
     "type": "git",

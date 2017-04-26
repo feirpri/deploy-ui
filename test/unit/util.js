@@ -14,6 +14,8 @@ const createElm = function() {
   return elm;
 };
 
+exports.createElm = createElm;
+
 /**
  * 回收 vm
  * @param  {Object} vm
@@ -53,8 +55,6 @@ exports.createTest = function(Compo, propsData = {}, mounted = false) {
     propsData = {};
   }
   const elm = createElm();
-  console.log(elm);
-  console.log(mounted);
   const Ctor = Vue.extend(Compo);
   return new Ctor({ propsData }).$mount(mounted === false ? null : elm);
 };

@@ -3,6 +3,7 @@
 var webpackConfig = require('../../webpack.conf.js');
 delete webpackConfig.entry;
 delete webpackConfig.externals;
+webpackConfig.plugins.splice(2, 1);
 
 module.exports = function(config) {
   config.set({
@@ -13,13 +14,15 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
     frameworks: ['mocha', 'sinon-chai'],
 
 
     // list of files / patterns to load in the browser
     files: [
-      './specs/addblock.spec.js'
+      './specs/addblock.spec.js',
+      './specs/ajaxerrordialog.spec.js',
+      './specs/ajaxprogress.spec.js'
     ],
 
 
@@ -31,7 +34,9 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      './specs/addblock.spec.js': ['webpack']  
+      './specs/addblock.spec.js': ['webpack'],
+      './specs/ajaxerrordialog.spec.js': ['webpack'],
+      './specs/ajaxprogress.spec.js': ['webpack']
     },
 
     webpack: webpackConfig,
@@ -61,17 +66,12 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: false,
-
-
-    // start these browsers
-    // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    autoWatch: true,
 
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
     // Concurrency level
     // how many browser should be started simultaneous

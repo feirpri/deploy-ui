@@ -30,6 +30,10 @@ describe('AjaxErrorDialog', () => {
       expect(domItems.length).to.equal(1);
       expect(domItems[0].children[0].innerText).to.equal(mockErrors[0].msg);
       expect(domItems[0].children[1].innerText.indexOf(mockErrors[0].url)).to.least(0);
+      vm.errorStack = [];
+      setTimeout(() => {
+        expect(vm.$el.style.display).to.equal('none');
+      }, 1000);
     });
   });
 
@@ -48,6 +52,10 @@ describe('AjaxErrorDialog', () => {
         expect(domItems[index].children[0].innerText).to.equal(item.msg);
         expect(domItems[index].children[1].innerText.indexOf(item.url)).to.least(0);
       });
+      vm.errorStack = [];
+      setTimeout(() => {
+        expect(vm.$el.style.display).to.equal('none');
+      }, 1000);
     });
   });
 });

@@ -7,7 +7,6 @@ function reCalc() {
     const ele = reCalc.$$config.ele;
     const options = reCalc.$$config.options;
     const flag = reCalc.$$config.flag;
-    const maxWidth = options.maxWidth;
     const minWidth = options.minWidth || 100;
     const margin = options.margin || 0;
     const eleStyle = window.getComputedStyle(ele);
@@ -15,16 +14,15 @@ function reCalc() {
         let totalWidth = window.parseInt(eleStyle.width);
         totalWidth -= window.parseInt(eleStyle.paddingLeft);
         totalWidth -= window.parseInt(eleStyle.paddingRight);
-        let x = Math.ceil(totalWidth / maxWidth);
-        let width = (totalWidth) / x;
-        while (width < (minWidth + margin)) {
-            x -= 1;
-            width = totalWidth / x;
-        }
-        width = Math.floor((width - margin) * 100) / 100;
+        let minNum = Math.floor(totalWidth / (minWidth + margin));
+        let width = Math.ceil((totalWidth / minNum - margin) * 100) / 100;
         const style = ele.getElementsByClassName('ci-autowidth-style')[0] || window.document.createElement('style');
         style.setAttribute('class', 'ci-autowidth-style');
-        style.innerText = `[${flag}] .autowidth{width: ${width}px}`;
+        style.innerText = `[${flag}] .autowidth{
+            width: ${width}px;
+            display: inline-block;
+            margin-left: ${margin/2}px;
+            margin-right: ${margin/2}px;}`;
         ele.insertBefore(style, ele.children[0]);
     });
 }

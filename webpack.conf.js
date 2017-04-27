@@ -37,17 +37,23 @@ module.exports = {
       {
         test: /\.json$/,
         loader: 'json'
+      },
+      ,
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'url'
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url'
+      },
+      {
+        test: /\.css$/,
+        loader: 'style!css'
       }
     ]
   },
   vue: {
-    loaders: {
-      css: ExtractTextPlugin.extract('vue-style-loader', 'css-loader'),
-      postcss: ExtractTextPlugin.extract('vue-style-loader', 'css-loader'),
-      less: ExtractTextPlugin.extract('vue-style-loader', 'css-loader!less-loader'),
-      stylus: ExtractTextPlugin.extract('vue-style-loader', 'css-loader!stylus-loader'),
-      styl: ExtractTextPlugin.extract('vue-style-loader', 'css-loader!stylus-loader'),
-    },
     postcss: [
       require('autoprefixer')({
         browsers: ['last 2 versions']

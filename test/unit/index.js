@@ -1,7 +1,7 @@
 // Polyfill fn.bind() for PhantomJS
 /* eslint-disable no-extend-native */
 Function.prototype.bind = require('function-bind');
-require('packages/theme-default/src/index.css');
+require('element-ui/lib/theme-default/index.css');
 
 // require all test files (files that ends with .spec.js)
 const testsContext = require.context('./specs', true, /\.spec$/);

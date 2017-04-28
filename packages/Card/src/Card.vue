@@ -15,7 +15,12 @@
 <script>
 export default {
     name: 'ci-card',
-    props: ['styles'],
+    props: {
+        'styles': {
+            type: Object,
+            default: () => ({})
+        },
+    },
     data() {
         return {
             hasActions: false,

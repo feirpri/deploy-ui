@@ -41,9 +41,11 @@ describe('Card', () => {
           <div slot="footer">this is footer panel</div>
         </ci-card>
       `,
-    }).$mount();
+    }).$mount(createElm());
     vm.$nextTick(() => {
-      expect(vm.$el.querySelector('.ci-card--action-panel').innerText.includes('this is footer panel')).to.be.true;
+      vm.$nextTick(() => {
+        expect(vm.$el.querySelector('.ci-card--action-panel').innerText.includes('this is footer panel')).to.be.true;
+      });
     });
   });
 });

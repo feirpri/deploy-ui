@@ -34,7 +34,7 @@
         name: 'ci-dropdown',
         props: {
             data: {
-                default: [],
+                default: () => [],
                 type: Array,
             },
             mode: String, // mode === 'group' | other

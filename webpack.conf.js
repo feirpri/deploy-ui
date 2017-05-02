@@ -4,8 +4,6 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var fs = require('fs')
 
-console.log(path.resolve('./packages'));
-
 module.exports = {
   entry: {
     index: './src/index.js'
@@ -23,7 +21,8 @@ module.exports = {
     extensions: ['', '.js', '.vue'],
     modulesDirectories: ["node_modules", "bower_components"],
     alias: {
-      'src': path.resolve('./packages')
+      'src': path.resolve('./packages'),
+      'vue$': 'vue/dist/vue.js'
     }
   },
   externals: fs.readdirSync("node_modules"),
@@ -44,7 +43,6 @@ module.exports = {
         test: /\.json$/,
         loader: 'json'
       },
-      ,
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url'

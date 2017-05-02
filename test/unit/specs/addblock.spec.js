@@ -1,5 +1,5 @@
 import { createTest, createVue, destroyVM } from '../util';
-import AddBlock from '../../../packages/AddBlock';
+import AddBlock from 'src/AddBlock';
 
 describe('AddBlock', () => {
   let vm;

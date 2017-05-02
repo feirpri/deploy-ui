@@ -1,5 +1,5 @@
 import { createTest, createVue, destroyVM } from '../util';
-import AjaxProgress from '../../../packages/AjaxProgress';
+import AjaxProgress from 'src/AjaxProgress';
 import Vue from 'vue';
 
 describe('AjaxProgress', () => {

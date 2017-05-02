@@ -27,7 +27,7 @@ export default {
         };
     },
     mounted() {
-        this.hasActions = !!this.$el.querySelector('[slot="footer"]');
+        this.hasActions = !!this.$slots.footer;
     },
 };
 </script>

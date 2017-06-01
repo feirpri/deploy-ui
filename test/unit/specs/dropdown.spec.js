@@ -13,21 +13,32 @@ describe('Dropdown', () => {
       }, {
         name: '下拉3',
       }],
+      enableSearch: false,
     };
     let vm = new Vue({
-      template: `<ci-dropdown :data="data"></ci-dropdown>`,
+      template: `<ci-dropdown :data="data" :enableSearch="enableSearch"></ci-dropdown>`,
       data(){
         return propsData;
       },
     }).$mount(createElm());
-    let menuEle = document.body.querySelector('.el-dropdown-menu');
+    let menuEle = vm.$el.querySelector('.el-dropdown-menu');
     expect(menuEle.style.display).to.equal('none');
     expect(menuEle.querySelectorAll('.ci-dropdown--item').length).to.equal(propsData.data.length);
     triggerEvent(vm.$el.querySelector('.el-dropdown').children[0], 'click');
     vm.$nextTick(() => {
       expect(menuEle.style.display).not.to.equal('none');
-      destroyVM(vm);
-      done();
+
+      vm.enableSearch = true;
+      vm.$nextTick(() => {
+        let inputEle = menuEle.querySelector('input');
+        inputEle.value = 1;
+        triggerEvent(inputEle, 'input');
+        vm.$nextTick(() => {
+          expect(menuEle.querySelectorAll('.ci-dropdown--item').length).to.equal(1);
+          destroyVM(vm);
+          done();
+        });
+      });
     });
   });
   it('create with group', (done) => {
@@ -63,7 +74,7 @@ describe('Dropdown', () => {
       },
     }).$mount(createElm());
     vm.$nextTick(() => {
-      let menuEle = document.body.querySelector('.el-dropdown-menu');
+      let menuEle = vm.$el.querySelector('.el-dropdown-menu');
       expect(menuEle.style.display).to.equal('none');
       expect(menuEle.querySelectorAll('.ci-dropdown--item').length).to.equal(6);
       expect(menuEle.querySelectorAll('.ci-dropdown--group').length).to.equal(2);
@@ -71,7 +82,7 @@ describe('Dropdown', () => {
       vm.$nextTick(() => {
         expect(menuEle.style.display).not.to.equal('none');
         destroyVM(vm);
-        down();
+        done();
       });
     });
   });

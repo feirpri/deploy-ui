@@ -46,7 +46,7 @@ describe('AutoWidth directive', () => {
         let x = Math.floor(width / (calculatedWidth + style.margin));
         expect(width / (x + 1) - style.margin).to.be.at.most(style.minWidth);
       });
-      it('auto recalculate width on resize event', () => {
+      it('auto recalculate width on resize event', (done) => {
         vm.$el.style.width = '805px';
         
         // 手动触发resize事件
@@ -59,6 +59,7 @@ describe('AutoWidth directive', () => {
           expect(calculatedWidth).to.be.at.least(style.minWidth);
           expect((calculatedWidth + style.margin) * 4).to.be.at.most(width);
           expect((calculatedWidth + style.margin) * 5).to.be.at.least(width);
+          done();
         });
       });
     });

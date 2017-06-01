@@ -5,6 +5,8 @@ delete webpackConfig.entry;
 delete webpackConfig.externals;
 webpackConfig.plugins.splice(1, 2);
 
+var useChrome = process.argv.indexOf('-n') > -1;
+
 module.exports = function(config) {
   config.set({
 
@@ -67,7 +69,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: true,
+    singleRun: !useChrome,
 
     // Concurrency level
     // how many browser should be started simultaneous

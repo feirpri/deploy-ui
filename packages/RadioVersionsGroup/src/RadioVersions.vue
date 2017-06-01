@@ -33,6 +33,10 @@
             };
         },
         mounted() {
+            if (!this.host.value) {
+                this.host.$emit('input', {});
+                return;
+            }
             if (this.host.value.value === this.label) {
                 this.version = this.host.value.version || this.version;
                 this.triggerInput(this.value);
@@ -45,7 +49,7 @@
             },
             result() {
                 return {
-                    value: this.host.value.value,
+                    value: (this.host.value || {}).value,
                     version: this.version,
                 };
             },

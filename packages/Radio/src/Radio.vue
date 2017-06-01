@@ -8,9 +8,6 @@
     export default {
         name: 'ci-radio',
         props: ['label', 'value'],
-        mounted() {
-            console.log(this);
-        },
     };
 </script>
 
@@ -25,6 +22,8 @@
         width: 18px;
         height: 18px;
         border-radius: 50%;
+        box-sizing: border-box;
+        vertical-align: middle;
     }
 
     &--checked{

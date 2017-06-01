@@ -52,6 +52,7 @@ export default {
         border-radius: 1.2rem;
         outline: none;
         padding: 0 3rem 0 1rem;
+        box-sizing: border-box;
     
         &:focus{
             border-color: #20A0FF;

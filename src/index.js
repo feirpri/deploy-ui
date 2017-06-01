@@ -1,4 +1,4 @@
-/** Auto created by script; Author: 舍掉英熊 Updated: Fri Apr 28 2017 16:16:50 GMT+0800 (中国标准时间)**/
+/** Auto created by script; Author: 舍掉英熊 Updated: Thu Jun 01 2017 20:59:07 GMT+0800 (中国标准时间)**/
 import AddBlock from '../packages/AddBlock/';
 import AjaxErrorDialog from '../packages/AjaxErrorDialog/';
 import AjaxProgress from '../packages/AjaxProgress/';
@@ -7,12 +7,10 @@ import ByteTransform from '../packages/ByteTransform/';
 import Card from '../packages/Card/';
 import Clipboard from '../packages/Clipboard/';
 import DeltaTime from '../packages/DeltaTime/';
-import Dialog from '../packages/Dialog/';
 import Dropdown from '../packages/Dropdown/';
 import Help from '../packages/Help/';
 import Highchart from '../packages/Highchart/';
 import Icon from '../packages/Icon/';
-import InfoItem from '../packages/InfoItem/';
 import LocalTime from '../packages/LocalTime/';
 import Logo from '../packages/Logo/';
 import Menu from '../packages/Menu/';
@@ -20,14 +18,13 @@ import OffCanvas from '../packages/OffCanvas/';
 import Radio from '../packages/Radio/';
 import RadioVersions from '../packages/RadioVersions/';
 import RadioVersionsGroup from '../packages/RadioVersionsGroup/';
-import RouterMap from '../packages/RouterMap/';
 import Search from '../packages/Search/';
 import User from '../packages/User/';
 
 function install(Vue){
-        [AddBlock, AjaxErrorDialog, AjaxProgress, AutoWidth, ByteTransform, Card, Clipboard, DeltaTime, Dialog, Dropdown, Help, Highchart, Icon, InfoItem, LocalTime, Logo, Menu, OffCanvas, Radio, RadioVersions, RadioVersionsGroup, RouterMap, Search, User].forEach(
+        [AddBlock, AjaxErrorDialog, AjaxProgress, AutoWidth, ByteTransform, Card, Clipboard, DeltaTime, Dropdown, Help, Highchart, Icon, LocalTime, Logo, Menu, OffCanvas, Radio, RadioVersions, RadioVersionsGroup, Search, User].forEach(
             item => item.install(Vue)
         );
     }
 
-export default {install,AddBlock,AjaxErrorDialog,AjaxProgress,AutoWidth,ByteTransform,Card,Clipboard,DeltaTime,Dialog,Dropdown,Help,Highchart,Icon,InfoItem,LocalTime,Logo,Menu,OffCanvas,Radio,RadioVersions,RadioVersionsGroup,RouterMap,Search,User}
+export default {install,AddBlock,AjaxErrorDialog,AjaxProgress,AutoWidth,ByteTransform,Card,Clipboard,DeltaTime,Dropdown,Help,Highchart,Icon,LocalTime,Logo,Menu,OffCanvas,Radio,RadioVersions,RadioVersionsGroup,Search,User}

@@ -6,12 +6,13 @@ var fs = require('fs')
 
 module.exports = {
   entry: {
-    index: './src/index.js'
+    index: ['./src/index.js', './theme/index.less']
   },
   output: {
     path: path.join(__dirname, '/dist'),
     publicPath: path.join(__dirname, '/dist/assets'),
     filename: '[name].js',
+    chunkFilename: "[id].bundle.js",
     libraryTarget: "umd"
   },
   resolve: {
@@ -42,6 +43,10 @@ module.exports = {
       {
         test: /\.json$/,
         loader: 'json'
+      },
+      {
+        test: /\.less$/,
+        loader: ExtractTextPlugin.extract('css!less')
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

@@ -1,5 +1,5 @@
 import { createTest, createVue, destroyVM, createElm } from '../util';
-import Card from 'src/Card';
+import Card from 'src/Card/';
 import Vue from 'vue/dist/vue.common.js';
 
 describe('Card', () => {

@@ -1,5 +1,5 @@
 import { createTest, createVue, destroyVM, createElm } from '../util';
-import AutoWidth from 'src/AutoWidth';
+import AutoWidth from 'src/AutoWidth/';
 import Vue from 'vue/dist/vue.common.js';
 
 function triggerWindowResize() {

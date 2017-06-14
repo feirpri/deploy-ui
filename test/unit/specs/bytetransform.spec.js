@@ -1,5 +1,5 @@
 import { createTest, createVue, destroyVM, createElm } from '../util';
-import ByteTransform from 'src/ByteTransform';
+import ByteTransform from 'src/ByteTransform/';
 import Vue from 'vue/dist/vue.common.js';
 
 describe('ByteTransform filter', () => {

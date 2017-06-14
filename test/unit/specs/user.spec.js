@@ -1,5 +1,5 @@
 import { createTest, createVue, destroyVM, createElm, triggerEvent, triggerKeydown } from '../util';
-import User from 'src/User';
+import User from 'src/User/';
 import Vue from 'vue';
 
 describe('User', () => {

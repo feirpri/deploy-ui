@@ -2,25 +2,21 @@ var path = require('path')
 var projectRoot = path.join(__dirname)
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 var fs = require('fs')
 
 module.exports = {
   entry: {
-    index: ['./src/index.js', './theme/index.less']
+    index: ['./src/index.js', './theme/index.less'],
   },
   output: {
     path: path.join(__dirname, '/dist'),
     publicPath: path.join(__dirname, '/dist/assets'),
     filename: '[name].js',
-    chunkFilename: "[id].bundle.js",
     libraryTarget: "umd"
   },
   resolve: {
-    root: [
-      path.resolve('./node_modules'),
-    ],
-    extensions: ['', '.js', '.vue'],
-    modulesDirectories: ["node_modules", "bower_components"],
+    extensions: ['.js', '.vue', '.json'],
     alias: {
       'src': path.resolve('./packages'),
       'vue$': 'vue/dist/vue.js'
@@ -28,46 +24,28 @@ module.exports = {
   },
   externals: fs.readdirSync("node_modules"),
   module: {
-    loaders: [
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel',
-        include: projectRoot,
-        exclude: /node_modules/
-      },
-      {
-        test: /\.json$/,
-        loader: 'json'
-      },
-      {
-        test: /\.less$/,
-        loader: ExtractTextPlugin.extract('css!less')
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url'
-      },
-      {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url'
-      },
-      {
-        test: /\.css$/,
-        loader: 'style!css'
-      }
-    ]
-  },
-  vue: {
-    postcss: [
-      require('autoprefixer')({
-        browsers: ['last 2 versions']
-      })
-    ]
+    rules: [{
+      test: /\.vue$/,
+      loader: 'vue-loader',
+      exclude: /node_modules/
+    }, {
+      test: /\.js$/,
+      loader: 'babel-loader',
+      include: projectRoot,
+      exclude: /node_modules/
+    }, {
+      test: /\.less$/,
+      loader: ExtractTextPlugin.extract('css-loader!less-loader')
+    }, {
+      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+      loader: 'url-loader'
+    }, {
+      test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+      loader: 'url-loader'
+    }, {
+      test: /\.css$/,
+      loader: 'style-loader!css-loader'
+    }]
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -79,6 +57,11 @@ module.exports = {
         warnings: false
       }
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new OptimizeCSSPlugin({
+      cssProcessorOptions: {
+        safe: true
+      }
+    }),
+    new webpack.optimize.OccurrenceOrderPlugin()
   ]
 }

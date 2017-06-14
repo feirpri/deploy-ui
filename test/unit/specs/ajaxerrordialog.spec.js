@@ -1,5 +1,5 @@
 import { createTest, createVue, destroyVM, createElm } from '../util';
-import AjaxErrorDialog from 'src/AjaxErrorDialog';
+import AjaxErrorDialog from 'src/AjaxErrorDialog/';
 import Vue from 'vue';
 
 describe('AjaxErrorDialog', () => {

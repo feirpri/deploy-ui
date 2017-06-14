@@ -1,5 +1,5 @@
 import { createTest, createVue, destroyVM, createElm, triggerEvent } from '../util';
-import Menu from 'src/Menu';
+import Menu from 'src/Menu/';
 import Vue from 'vue';
 
 describe('Menu', () => {

@@ -1,0 +1,8 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: node:latest
+    steps:
+      - show version
+      - run: node -v

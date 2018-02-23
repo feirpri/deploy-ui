@@ -1,6 +1,9 @@
 version: 2
 jobs:
   build:
+    branches:
+      only:
+        - test-ci
     docker:
       - image: node:latest
     steps:

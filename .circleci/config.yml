@@ -7,5 +7,4 @@ jobs:
     docker:
       - image: node:latest
     steps:
-      - show version
       - run: node -v

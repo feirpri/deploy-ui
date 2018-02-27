@@ -27,4 +27,12 @@ workflows:
   build_and_test:
     jobs:
       - build
+        filters
+          branches:
+            only:
+              - test-ci
       - test
+        filters
+          branches:
+            only:
+              - test-ci

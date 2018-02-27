@@ -7,4 +7,7 @@ jobs:
     docker:
       - image: node:latest
     steps:
-      - run: node -v
+      - checkout
+      - run: npm i
+      - run: npm run test
+      - run: npm run build

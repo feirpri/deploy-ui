@@ -1,24 +1,25 @@
 import { createTest, createVue, destroyVM, createElm } from '../util';
-import AutoWidth from 'src/AutoWidth';
-import Vue from 'vue/dist/vue.common.js';
+import AutoWidth from 'src/AutoWidth/';
+import Vue from 'vue';
 
 function triggerWindowResize() {
-  if( document.createEvent) { 
-    var event = document.createEvent ("HTMLEvents"); 
-    event.initEvent("resize", true, true); 
-    window.dispatchEvent(event); 
-  } else if(document.createEventObject){ 
-    window.fireEvent("onresize"); 
-  } 
+  if( document.createEvent) {
+    var event = document.createEvent ("HTMLEvents");
+    event.initEvent("resize", true, true);
+    window.dispatchEvent(event);
+  } else if(document.createEventObject){
+    window.fireEvent("onresize");
+  }
 }
 
 describe('AutoWidth directive', () => {
+  console.log(Vue);
   let template = Vue.compile(`<div v-ci-autowidth="style">
       <div class="autowidth" :style="{fontSize: '14px', height: '20px'}" v-for="i in 10">{{i}}</div>
     </div>`);
   let style = {
     margin: 20,
-    minWidth: 180      
+    minWidth: 180
   };
   let vm = new Vue({
     directives: {
@@ -48,10 +49,10 @@ describe('AutoWidth directive', () => {
       });
       it('auto recalculate width on resize event', (done) => {
         vm.$el.style.width = '805px';
-        
+
         // 手动触发resize事件
         triggerWindowResize();
-  
+
         Vue.nextTick(() => {
           styleText = vm.$el.querySelector('style').innerText.replace(/\r|\n/igm, ''); // 移除换行符
           calculatedWidth = parseInt(styleText.replace(/^.*[^\w]+width\s*:\s*([\d]+).*$/ig, '$1'));

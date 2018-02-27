@@ -1,5 +1,5 @@
 import { createTest, createVue, destroyVM, createElm, triggerEvent, triggerKeydown } from '../util';
-import Search from 'src/Search';
+import Search from 'src/Search/';
 import Vue from 'vue';
 
 describe('Search', () => {

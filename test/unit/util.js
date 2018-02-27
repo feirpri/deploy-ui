@@ -14,13 +14,11 @@ const createElm = function() {
   return elm;
 };
 
-exports.createElm = createElm;
-
 /**
  * 回收 vm
  * @param  {Object} vm
  */
-exports.destroyVM = function(vm) {
+function destroyVM(vm) {
   vm.$el &&
   vm.$el.parentNode &&
   vm.$el.parentNode.removeChild(vm.$el);
@@ -32,7 +30,7 @@ exports.destroyVM = function(vm) {
  * @param  {Boolean=false} mounted 是否添加到 DOM 上
  * @return {Object} vm
  */
-exports.createVue = function(Compo, mounted = false) {
+function createVue(Compo, mounted = false) {
   const elm = createElm();
 
   if (Object.prototype.toString.call(Compo) === '[object String]') {
@@ -49,7 +47,7 @@ exports.createVue = function(Compo, mounted = false) {
  * @param  {Boolean=false} mounted  - 是否添加到 DOM 上
  * @return {Object} vm
  */
-exports.createTest = function(Compo, propsData = {}, mounted = false) {
+function createTest (Compo, propsData = {}, mounted = false) {
   if (propsData === true || propsData === false) {
     mounted = propsData;
     propsData = {};
@@ -66,7 +64,7 @@ exports.createTest = function(Compo, propsData = {}, mounted = false) {
  * @param  {String} name
  * @param  {*} opts
  */
-exports.triggerEvent = function(elm, name, ...opts) {
+function triggerEvent (elm, name, ...opts) {
   let eventName;
 
   if (/^mouse|click/.test(name)) {
@@ -92,9 +90,18 @@ exports.triggerEvent = function(elm, name, ...opts) {
  * @param  {Element} elm
  * @param  {Number} keyCode
  */
-exports.triggerKeydown = function(elm, keyCode) {
+function triggerKeydown (elm, keyCode) {
   const evt = document.createEvent('Events');
   evt.initEvent('keydown', true, true);
   evt.keyCode = keyCode;
   elm.dispatchEvent(evt);
+};
+
+export {
+  createElm,
+  destroyVM,
+  createVue,
+  createTest,
+  triggerEvent,
+  triggerKeydown,
 };

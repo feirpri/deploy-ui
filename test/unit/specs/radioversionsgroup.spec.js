@@ -1,5 +1,5 @@
 import { createTest, createVue, destroyVM, createElm, triggerEvent, triggerKeydown } from '../util';
-import RadioVersionsGroup from 'src/RadioVersionsGroup';
+import RadioVersionsGroup from 'src/RadioVersionsGroup/';
 import Vue from 'vue';
 
 describe('RadioVersionsGroup', () => {

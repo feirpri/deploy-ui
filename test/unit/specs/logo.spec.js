@@ -1,5 +1,5 @@
 import { createTest, createVue, destroyVM, createElm, triggerEvent } from '../util';
-import Logo from 'src/Logo';
+import Logo from 'src/Logo/';
 import Vue from 'vue';
 
 describe('Logo', () => {

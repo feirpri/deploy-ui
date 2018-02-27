@@ -1,5 +1,5 @@
 import { createTest, createVue, destroyVM, createElm, triggerEvent } from '../util';
-import OffCanvas from 'src/OffCanvas';
+import OffCanvas from 'src/OffCanvas/';
 import Vue from 'vue';
 
 describe('OffCanvas', () => {

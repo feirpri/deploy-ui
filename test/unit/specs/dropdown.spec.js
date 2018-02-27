@@ -1,5 +1,5 @@
 import { createTest, createVue, destroyVM, createElm, triggerEvent } from '../util';
-import Dropdown from 'src/Dropdown';
+import Dropdown from 'src/Dropdown/';
 import Vue from 'vue';
 
 describe('Dropdown', () => {

@@ -1,5 +1,5 @@
 import { createTest, createVue, destroyVM, createElm, triggerEvent } from '../util';
-import Help from 'src/Help';
+import Help from 'src/Help/';
 import Vue from 'vue';
 
 describe('Help', () => {

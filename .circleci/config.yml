@@ -8,7 +8,14 @@ jobs:
       - image: circleci/node:latest
     steps:
       - checkout
+      - restore_cache:
+        keys:
+          - npmcache-{{ checksum "package-lock.json" }}
       - run: npm i
+      - save_cache:
+        key: npmcache-{{ checksum "package-lock.json" }}
+        paths:
+          - node_modules
       - run: npm run build
   test:
     docker:

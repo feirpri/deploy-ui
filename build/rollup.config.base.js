@@ -5,7 +5,6 @@ let uglify = require('rollup-plugin-uglify');
 let babel = require('rollup-plugin-babel');
 let replace = require('rollup-plugin-replace');
 let commonjs = require('rollup-plugin-commonjs');
-let resolveLocal = require('rollup-plugin-local-resolve');
 let alias = require('rollup-plugin-alias');
 
 module.exports = {

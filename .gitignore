@@ -3,3 +3,4 @@ dist/
 .npmignore
 npm-debug.log
 npm-debug.log.*
+coverage/

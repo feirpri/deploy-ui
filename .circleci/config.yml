@@ -31,8 +31,3 @@ workflows:
           branches:
             only:
               - test-ci
-      - test:
-        filters:
-          branches:
-            only:
-              - test-ci

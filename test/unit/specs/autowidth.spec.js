@@ -13,7 +13,6 @@ function triggerWindowResize() {
 }
 
 describe('AutoWidth directive', () => {
-  console.log(Vue);
   let template = Vue.compile(`<div v-ci-autowidth="style">
       <div class="autowidth" :style="{fontSize: '14px', height: '20px'}" v-for="i in 10">{{i}}</div>
     </div>`);

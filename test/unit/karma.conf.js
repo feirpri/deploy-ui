@@ -1,13 +1,4 @@
-// Karma configuration
-// Generated on Wed Mar 15 2017 12:05:21 GMT+0800 (中国标准时间)
-// var webpackConfig = require('../../webpack.conf.js');
-// delete webpackConfig.entry;
-// delete webpackConfig.externals;
-// webpackConfig.plugins.splice(1, 2);
-var rollupConfig = require('../../rollup.config.js');
-delete rollupConfig.entry;
-delete rollupConfig.external;
-
+var rollupConfig = require('../../build/rollup.config.test.js');
 var useChrome = process.argv.indexOf('-n') > -1;
 
 module.exports = function(config) {
@@ -25,7 +16,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      "specs/addblock.spec.js"
+      "index.js",
     ],
 
 
@@ -37,23 +28,12 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      "specs/addblock.spec.js": ['rollup'],
+        "index.js": ['rollup'],
     },
 
     rollupPreprocessor: rollupConfig,
 
-
-    // webpack: webpackConfig,
-    // webpackMiddleware: {
-    //   // webpack-dev-middleware configuration
-    //   // i. e.
-    //   stats: 'errors-only'
-    // },
-
-    // test results reporter to use
-    // possible values: 'dots', 'progress'
-    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
 
 
     // web server port

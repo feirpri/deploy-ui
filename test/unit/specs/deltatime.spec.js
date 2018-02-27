@@ -1,6 +1,6 @@
 import { createTest, createVue, destroyVM, createElm } from '../util';
 import DeltaTime from 'src/DeltaTime/';
-import Vue from 'vue/dist/vue.common.js';
+import Vue from 'vue';
 
 describe('DeltaTime filter', () => {
   DeltaTime.install(Vue);

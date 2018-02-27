@@ -1,6 +1,6 @@
 import { createTest, createVue, destroyVM, createElm } from '../util';
 import Card from 'src/Card/';
-import Vue from 'vue/dist/vue.common.js';
+import Vue from 'vue';
 
 describe('Card', () => {
   Card.install(Vue);
@@ -30,7 +30,7 @@ describe('Card', () => {
       `,
     }).$mount();
     expect(vm.$el.querySelector('.ci-card--header-panel').innerText.includes('this is header panel')).to.be.true;
-    expect(vm.$el.querySelector('.ci-card--header-panel').style.backgroundColor).to.equal('pink');  
+    expect(vm.$el.querySelector('.ci-card--header-panel').style.backgroundColor).to.equal('pink');
   });
   it('create with footer', () => {
     let vm = new Vue({

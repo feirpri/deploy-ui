@@ -1,6 +1,6 @@
 import { createTest, createVue, destroyVM, createElm } from '../util';
 import LocalTime from 'src/LocalTime/';
-import Vue from 'vue/dist/vue.common.js';
+import Vue from 'vue';
 
 describe('LocalTime filter', () => {
   LocalTime.install(Vue);

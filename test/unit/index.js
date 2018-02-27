@@ -1,14 +1,22 @@
-// Polyfill fn.bind() for PhantomJS
-/* eslint-disable no-extend-native */
-Function.prototype.bind = require('function-bind');
-require('element-ui/lib/theme-default/index.css');
-
-// require all test files (files that ends with .spec.js)
-const testsContext = require.context('./specs', true, /\.spec$/);
-testsContext.keys().forEach(testsContext);
-
-// require all src files except main.js for coverage.
-// you can also change this to match only the subset of files that
-// you want coverage for.
-// const srcContext = require.context('../../src', true, /^\.\/(?!main(\.js)?$)/);
-// srcContext.keys().forEach(srcContext);
+/**
+Auto created by script;
+Author: 舍掉英熊
+Updated: Sat Feb 24 2018 19:06:40 GMT+0800 (中国标准时间)
+**/
+import  './specs/addblock.spec.js';
+import  './specs/ajaxerrordialog.spec.js';
+import  './specs/ajaxprogress.spec.js';
+import  './specs/autowidth.spec.js';
+import  './specs/bytetransform.spec.js';
+import  './specs/card.spec.js';
+import  './specs/deltatime.spec.js';
+import  './specs/dropdown.spec.js';
+import  './specs/help.spec.js';
+import  './specs/localtime.spec.js';
+import  './specs/logo.spec.js';
+import  './specs/menu.spec.js';
+import  './specs/offcanvas.spec.js';
+import  './specs/radio.spec.js';
+import  './specs/radioversionsgroup.spec.js';
+import  './specs/search.spec.js';
+import  './specs/user.spec.js';

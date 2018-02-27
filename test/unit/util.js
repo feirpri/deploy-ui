@@ -1,5 +1,5 @@
-import * as Vue from 'vue/dist/vue.esm.js';
-import * as Element from 'element-ui';
+import Vue from 'vue';
+import Element from 'element-ui';
 
 Vue.use(Element);
 

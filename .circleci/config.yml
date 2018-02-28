@@ -17,6 +17,7 @@ jobs:
           paths:
             - node_modules
   build:
+    working_directory: ~/deploy-ui
     docker:
       - image: circleci/node:latest-browsers
     steps:
@@ -24,6 +25,7 @@ jobs:
           name: Build
           command: npm run build
   test:
+    working_directory: ~/deploy-ui
     docker:
       - image: circleci/node:latest-browsers
     steps:

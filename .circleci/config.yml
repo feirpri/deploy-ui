@@ -2,9 +2,6 @@ version: 2
 jobs:
   build:
     working_directory: ~/deploy-ui
-    branches:
-      only:
-        - test-ci
     docker:
       - image: circleci/node:latest-browsers
     steps:

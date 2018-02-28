@@ -1,6 +1,6 @@
 {
   "name": "deploy-ui",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A Vue.js project",
   "author": "linguanghui3 <linguanghui@jd.com>",
   "main": "dist/index.js",

@@ -21,6 +21,10 @@ jobs:
     docker:
       - image: circleci/node:latest-browsers
     steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - npmcache-{{ checksum "package-lock.json" }}
       - run:
           name: Build
           command: npm run build
@@ -29,6 +33,10 @@ jobs:
     docker:
       - image: circleci/node:latest-browsers
     steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - npmcache-{{ checksum "package-lock.json" }}
       - run:
           name: Test
           command: npm run test

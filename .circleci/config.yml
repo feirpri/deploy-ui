@@ -24,10 +24,9 @@ jobs:
       - run: npm run test
 workflows:
   version: 2
-  build_and_test:
+  build-test:
     jobs:
       - build:
         filters:
           branches:
-            only:
-              - test-ci
+            only: test-ci

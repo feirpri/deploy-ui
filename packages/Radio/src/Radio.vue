@@ -1,0 +1,1 @@
+<template>    <div class="ci-radio" @click="$emit('input', label)">        <span class="ci-radio--circle" :class="{'ci-radio--checked': label === value}"></span>        <slot>{{label}}</slot>    </div></template><script type="text/javascript">    export default {        name: 'ci-radio',        props: ['label', 'value'],    };</script>
